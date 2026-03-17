@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "AOrwV8DIBDU=",
+  "success": false,
+  "projectFilePath": "E:\\Portfolio LMH\\thao\\thuthao\\tools\\PdfPageRenderer\\PdfPageRenderer.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.\r\n  An attempt was made to access a socket in a way forbidden by its access permissions. (api.nuget.org:443)\r\n  An attempt was made to access a socket in a way forbidden by its access permissions.",
+      "projectPath": "E:\\Portfolio LMH\\thao\\thuthao\\tools\\PdfPageRenderer\\PdfPageRenderer.csproj",
+      "filePath": "E:\\Portfolio LMH\\thao\\thuthao\\tools\\PdfPageRenderer\\PdfPageRenderer.csproj",
+      "libraryId": "Microsoft.Windows.SDK.NET.Ref",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "projectPath": "E:\\Portfolio LMH\\thao\\thuthao\\tools\\PdfPageRenderer\\PdfPageRenderer.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\Portfolio LMH\\thao\\thuthao\\tools\\PdfPageRenderer\\PdfPageRenderer.csproj",
+      "targetGraphs": []
+    }
+  ]
+}

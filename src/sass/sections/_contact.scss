@@ -1,38 +1,153 @@
 #contact {
-  background-image: linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  padding: 15rem 0 10rem 0;
-  margin-top: -10rem;
-  margin-bottom: -1px;
-  color: $white-color;
-
+  background: $gradient-primary;
+  position: relative;
+  overflow: hidden;
+  
+  // Modern clip-path for desktop
   @include respond(tab-land) {
-    padding: 10rem 0;
+    -webkit-clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 100%);
+    padding: 12rem 0 8rem 0;
+    margin-top: -8rem;
+  }
+  
+  // Mobile styling
+  @include respond(tab-port) {
+    padding: 8rem 0;
     clip-path: none;
     margin-top: 0;
     -webkit-clip-path: none;
   }
+  
+  margin-bottom: -1px;
+  color: $white-color;
+
+  // Animated background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($accent-color, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($secondary-color, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite reverse;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
 
   .contact-wrapper {
-    margin-top: 3.2rem;
-    padding: 0 2rem;
+    margin-top: $element-spacing-lg;
+    padding: $card-padding;
     backface-visibility: hidden;
+    background: rgba($white-color, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: $border-radius-lg;
+    border: 1px solid rgba($white-color, 0.2);
+    box-shadow: $shadow-xl;
+    transition: all $transition-base;
+    position: relative;
+    overflow: hidden;
 
-    &__text {
-      margin-bottom: 2.5rem;
+    // Glowing border effect
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $gradient-accent;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity $transition-base;
+      border-radius: $border-radius-lg;
     }
 
-    &__text,
-    a {
-      font-size: 2.4rem;
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba($white-color, 0.15);
+      border-color: rgba($accent-color, 0.4);
+      
+      &::before {
+        opacity: 0.1;
+      }
+    }
 
+    &__text {
+      margin-bottom: $element-spacing;
+      font-size: $large-font-size;
+      font-weight: 300;
+      color: rgba($white-color, 0.95);
+      
       @include respond(phone) {
-        font-size: 2rem;
+        font-size: $medium-font-size;
+      }
+    }
+
+    // Social links container
+    .d-flex {
+      gap: $element-spacing !important;
+      
+      .social-link {
+        width: 5rem;
+        height: 5rem;
+        background: rgba($white-color, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba($white-color, 0.2);
+        color: $white-color;
+        font-size: $large-font-size;
+        transition: all $transition-base;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: $gradient-accent;
+          opacity: 0;
+          transition: opacity $transition-base;
+          border-radius: 50%;
+        }
+
+        &:hover {
+          transform: translateY(-3px) scale(1.05);
+          background: rgba($accent-color, 0.2);
+          border-color: rgba($accent-color, 0.5);
+          box-shadow: $shadow-colored;
+          color: $white-color;
+
+          &::before {
+            opacity: 0.3;
+          }
+        }
+
+        i {
+          position: relative;
+          z-index: 1;
+        }
       }
     }
   }

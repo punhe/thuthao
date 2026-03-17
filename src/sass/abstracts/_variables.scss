@@ -1,15 +1,79 @@
-// COLORS
-$primary-color: #02aab0;
-$secondary-color: #00cdac;
+// COLORS - Modern Color Palette
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$accent-color: #f093fb;
+$gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 
-$white-color: #fff;
+$background-light: #f8fafc;
+$background-dark: #1a202c;
+$background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
-$dark-grey: #333333;
-$light-grey: #d2d2d2;
+$text-primary: #2d3748;
+$text-secondary: #718096;
+$text-light: #f7fafc;
+$dark-blue-text: #2d3748;
 
-$dark-blue-text: #272341; // For Headings
+$white-color: #ffffff;
+$dark-grey: #4a5568;
+$light-grey: #e2e8f0;
 
-// FONT SIZE
+$success-color: #48bb78;
+$warning-color: #ed8936;
+$info-color: #4299e1;
+$error-color: #f56565;
+
+// FONT SIZE - Improved Typography Scale
 $default-font-size: 1.6rem;
-$big-font-size: 4rem;
-$mid-font-size: 2.5rem;
+$small-font-size: 1.4rem;
+$medium-font-size: 1.8rem;
+$large-font-size: 2.2rem;
+$xl-font-size: 2.8rem;
+$xxl-font-size: 3.6rem;
+$big-font-size: 4.8rem;
+$huge-font-size: 6rem;
+
+// SPACING - Enhanced Spacing System
+$section-padding: 10rem 0;
+$section-padding-sm: 6rem 0;
+$container-padding: 0 2rem;
+$container-padding-md: 0 3rem;
+$container-padding-lg: 0 4rem;
+$card-padding: 3rem;
+$element-spacing: 2rem;
+$element-spacing-sm: 1rem;
+$element-spacing-lg: 3rem;
+
+// BREAKPOINTS - Enhanced Responsive Design
+$breakpoint-xs: 30em;          // 480px
+$breakpoint-phone: 37.5em;     // 600px
+$breakpoint-tab-port: 56.25em; // 900px
+$breakpoint-tab-land: 75em;    // 1200px
+$breakpoint-desktop: 87.5em;   // 1400px
+$breakpoint-xl: 112.5em;       // 1800px
+
+// SHADOWS - Enhanced Shadow System
+$shadow-light: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+$shadow-large: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.10);
+$shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.07);
+$shadow-colored: 0 10px 25px rgba(102, 126, 234, 0.25);
+$shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+// BORDER RADIUS
+$border-radius-sm: 8px;
+$border-radius: 12px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+$border-radius-full: 50%;
+
+// TRANSITIONS
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// GLASSMORPHISM
+$glass-bg: rgba(255, 255, 255, 0.1);
+$glass-border: rgba(255, 255, 255, 0.2);
+$glass-backdrop: blur(10px);

@@ -1,28 +1,161 @@
+// Modern base styles
 html {
   font-size: 62.5%;
-
-  &.sr .load-hidden {
-    visibility: hidden;
-  }
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
   scroll-behavior: smooth;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+
+body {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  scroll-behavior: smooth;
+  background: $background-light;
+  color: $text-primary;
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-x: hidden;
 }
-::-webkit-scrollbar-thumb {
-  background: $light-grey;
-}
-::-webkit-scrollbar-thumb:hover {
+
+// Selection styles
+::selection {
   background: $primary-color;
+  color: $white-color;
+}
+
+::-moz-selection {
+  background: $primary-color;
+  color: $white-color;
+}
+
+/* Enhanced ScrollReveal - elements hidden before animation */
+.hero-title,
+.hero-text,
+.hero-image,
+.section-title,
+.about-wrapper__image,
+.about-wrapper__info,
+.project-wrapper__text,
+.project-wrapper__image,
+.education-wrapper__text,
+.experience-wrapper__text,
+.skills-wrapper__text,
+.achievements-wrapper__text,
+.closing-wrapper__text,
+.contact-wrapper {
+  visibility: hidden;
+}
+
+/* Elements shown with fade-in effect */
+.load-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  
+  &.revealed {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background-light;
+  border-radius: $border-radius;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gradient-primary;
+  border-radius: $border-radius;
+  transition: all $transition-base;
+  
+  &:hover {
+    background: $gradient-secondary;
+    box-shadow: $shadow-light;
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background: $background-light;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color $background-light;
+}
+
+/* Focus styles */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+/* Enhanced link styles */
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+/* Utility classes */
+.text-gradient {
+  background: $gradient-primary;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-effect {
+  background: $glass-bg;
+  backdrop-filter: $glass-backdrop;
+  border: 1px solid $glass-border;
+}
+
+.shadow-hover {
+  transition: box-shadow $transition-base;
+  
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    $background-light 25%, 
+    rgba($primary-color, 0.1) 37%, 
+    $background-light 63%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
 }

@@ -1,21 +1,50 @@
 #about {
-  background-color: $primary-color;
-  background-image: linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
+  background: $gradient-primary;
   color: $white-color;
   height: 100%;
   border-top: 0px;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  padding-bottom: 10%;
-
+  position: relative;
+  overflow: hidden;
+  
+  // Modern clip-path for desktop
   @include respond(tab-land) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    padding-bottom: 15%;
+  }
+
+  // Animated background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
     height: 100%;
-    -webkit-clip-path: none;
-    clip-path: none;
+    background: linear-gradient(45deg, 
+      transparent 30%, 
+      rgba($accent-color, 0.1) 50%, 
+      transparent 70%);
+    animation: moveBackground 15s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba($accent-color, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 6s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
   }
 
   .about-wrapper {
@@ -28,12 +57,34 @@
       height: 100%;
       align-items: center;
       justify-content: center;
+      position: relative;
 
       @include respond(tab-land) {
         height: 100%;
       }
       @include respond(tab-port-sm) {
         padding-bottom: 6.4rem;
+      }
+
+      // Add decorative frame
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+        border: 2px solid rgba($accent-color, 0.3);
+        border-radius: $border-radius-xl;
+        z-index: 0;
+        animation: borderPulse 4s ease-in-out infinite;
+      }
+
+      img {
+        position: relative;
+        z-index: 1;
+        border-radius: $border-radius-lg;
+        box-shadow: $shadow-xl;
       }
     }
 
@@ -42,13 +93,31 @@
       height: 100%;
       justify-content: center;
       flex-direction: column;
+      position: relative;
 
       @include respond(tab-port-sm) {
         align-items: center;
       }
 
+      // Enhanced background card
+      .card-style {
+        background: rgba($white-color, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba($white-color, 0.2);
+        border-radius: $border-radius-lg;
+        
+        &:hover {
+          background: rgba($white-color, 0.15);
+          border-color: rgba($accent-color, 0.3);
+        }
+      }
+
       &-text {
         text-align: left;
+        color: rgba($white-color, 0.95);
+        font-size: $medium-font-size;
+        line-height: 1.7;
+        margin-bottom: $element-spacing;
 
         @include respond(tab-port) {
           text-align: left;
@@ -58,12 +127,14 @@
         }
 
         &--important {
-          background: darken($secondary-color, 1%);
+          background: rgba($accent-color, 0.2);
           display: inline-block;
           font-style: italic;
-          padding: 0 0.3rem;
+          padding: 0.5rem 1rem;
           margin: 0.3rem 0;
           line-height: 1.6;
+          border-radius: $border-radius-sm;
+          border-left: 4px solid $accent-color;
 
           @include respond(phone) {
             display: inline;
@@ -71,9 +142,26 @@
             padding: 0;
             background: transparent;
             font-style: normal;
+            border: none;
           }
         }
       }
     }
+  }
+}
+
+@keyframes moveBackground {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+}
+
+@keyframes borderPulse {
+  0%, 100% { 
+    border-color: rgba($accent-color, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    border-color: rgba($accent-color, 0.6);
+    transform: scale(1.02);
   }
 }
