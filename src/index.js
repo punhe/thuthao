@@ -128,7 +128,7 @@ function initHeroEntrance() {
     ease: "power2.out",
   });
 
-  gsapLib.from(".hero__note", {
+  gsapLib.from(".hero__moment", {
     y: 20,
     opacity: 0,
     duration: 0.9,
