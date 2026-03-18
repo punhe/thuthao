@@ -887,7 +887,8 @@ main,
   .photo-card--campus,
   .photo-card--event,
   .photo-card--campaign,
-  .photo-card--triptych {
+  .photo-card--triptych,
+  .photo-card--closing {
     grid-column: span 1;
   }
 }
@@ -917,21 +918,12 @@ main,
   }
 
   .hero__visual {
-    min-height: 28rem;
+    justify-self: start;
+    width: 100%;
   }
 
-  .hero__portrait {
-    inset: 0 0 0 auto;
-    width: min(100%, 24rem);
-  }
-
-  .hero__note--one {
-    top: auto;
-    bottom: 8rem;
-  }
-
-  .hero__note--two {
-    right: 1rem;
+  .hero__moments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -953,23 +945,15 @@ main,
   }
 
   .hero__visual {
-    min-height: auto;
-  }
-
-  .hero__portrait {
-    position: relative;
-    inset: auto;
     width: 100%;
   }
 
-  .hero__note {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    max-width: none;
-    margin-top: 0.85rem;
+  .hero__moments {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__moment--wide {
+    grid-column: auto;
   }
 
   .chapter {
