@@ -276,7 +276,7 @@ main,
 
 .hero__grid {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  align-items: center;
+  align-items: start;
 }
 
 .hero__title,
@@ -333,8 +333,11 @@ main,
 }
 
 .hero__visual {
-  position: relative;
-  min-height: 34rem;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  justify-self: end;
+  width: min(100%, 34rem);
 }
 
 .layer {
@@ -342,9 +345,7 @@ main,
 }
 
 .hero__portrait {
-  position: absolute;
-  inset: 0 2rem 1.5rem auto;
-  width: min(100%, 28rem);
+  margin: 0;
   padding: 0.9rem;
   border: 1px solid rgba(42, 31, 24, 0.08);
   border-radius: var(--radius-lg);
@@ -354,7 +355,7 @@ main,
 
 .hero__portrait-image {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 4.9;
   border-radius: calc(var(--radius-lg) - 10px);
   object-fit: cover;
   filter: saturate(1.02) contrast(1.02);
@@ -367,7 +368,13 @@ main,
   line-height: 1.55;
 }
 
-.hero__note,
+.hero__moments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hero__moment,
 .summary-item,
 .aside-card,
 .timeline-item,
@@ -381,38 +388,32 @@ main,
   box-shadow: var(--shadow);
 }
 
-.hero__note {
-  position: absolute;
-  max-width: 15rem;
-  padding: 1rem 1.05rem;
-  border-radius: 18px;
+.hero__moment {
+  margin: 0;
+  padding: 0.8rem;
+  border-radius: 20px;
 }
 
-.hero__note span {
-  display: block;
-  color: var(--accent);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.hero__moment-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  object-fit: cover;
 }
 
-.hero__note strong {
-  display: block;
-  margin-top: 0.45rem;
-  font-family: "Newsreader", serif;
-  font-size: 1.45rem;
-  line-height: 1.02;
+.hero__moment figcaption {
+  margin-top: 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.hero__note--one {
-  left: 0;
-  top: 2rem;
+.hero__moment--wide {
+  grid-column: 1 / -1;
 }
 
-.hero__note--two {
-  right: 0;
-  bottom: 0;
+.hero__moment--wide .hero__moment-image {
+  aspect-ratio: 16 / 10;
 }
 
 .hero__summary {
@@ -435,6 +436,7 @@ main,
 .photo-card {
   margin: 0;
   overflow: hidden;
+  padding: 0.8rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.72);
@@ -442,61 +444,51 @@ main,
 }
 
 .photo-card figcaption {
-  padding: 0.85rem 1rem 1rem;
+  padding: 0.85rem 0.2rem 0.1rem;
   color: var(--ink-soft);
   font-size: 0.9rem;
-  font-weight: 700;
+  line-height: 1.55;
 }
 
 .photo-card__image {
   width: 100%;
-  height: 100%;
+  border-radius: calc(var(--radius-lg) - 10px);
   object-fit: cover;
 }
 
-.photo-card--portrait,
-.photo-card--fieldwork,
-.photo-card--campus,
-.photo-card--triptych {
+.photo-card--portrait {
   grid-column: span 4;
 }
 
-.photo-card--event {
+.photo-card--fieldwork {
   grid-column: span 5;
 }
 
-.photo-card--campaign {
+.photo-card--campus {
   grid-column: span 3;
 }
 
-.photo-card--portrait .photo-card__image {
+.photo-card--event,
+.photo-card--campaign,
+.photo-card--triptych,
+.photo-card--closing {
+  grid-column: span 4;
+}
+
+.photo-card--portrait .photo-card__image,
+.photo-card--campus .photo-card__image,
+.photo-card--event .photo-card__image {
   aspect-ratio: 4 / 5;
-  object-position: center 18%;
 }
 
 .photo-card--fieldwork .photo-card__image {
-  aspect-ratio: 4 / 3;
-  object-position: 28% 58%;
-}
-
-.photo-card--campus .photo-card__image {
-  aspect-ratio: 4 / 3;
-  object-position: 84% 48%;
-}
-
-.photo-card--event .photo-card__image {
   aspect-ratio: 16 / 10;
-  object-position: 87% 18%;
 }
 
-.photo-card--campaign .photo-card__image {
-  aspect-ratio: 3 / 4;
-  object-position: 50% 62%;
-}
-
-.photo-card--triptych .photo-card__image {
-  aspect-ratio: 16 / 10;
-  object-position: 50% 11%;
+.photo-card--campaign .photo-card__image,
+.photo-card--triptych .photo-card__image,
+.photo-card--closing .photo-card__image {
+  aspect-ratio: 4 / 3;
 }
 
 .summary-item {
